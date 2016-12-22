@@ -1,0 +1,89 @@
+<!-- <div class="card-container">
+    <h1 x-large class="sample-content">Products</h1>
+    <hr>
+    <div>
+        <md-list>
+            <md-list-item *ngFor="let product of products">
+                <h3 md-line> {{ product.id }} | {{product.name}} </h3>
+                <p md-line class="product_description"> {{product.description}} </p> 
+                <button md-raised-button color="warning">Edit</button>
+            </md-list-item>
+        </md-list>
+    </div>
+</div> -->
+<div class="row" style="margin:5px">
+    <div class="col-xs-12">
+        <div class="col-xs-6">
+        </div>
+        <div class="col-xs-6" *ngIf='notEditing' >
+            <button class="btn btn-error col-xs-2 pull-right" (click)="logoutUser()"> Logout</button>
+        </div>
+    </div>
+    <div class="col-xs-12" *ngIf='notEditing'>
+        <div class="col-xs-12">
+            Products List
+        </div>
+        <div class="col-xs-12">
+            <table class="table table-hover">
+                <caption>Product List Table</caption>
+                <thead>
+                    <tr>
+                        <th> Id</th>
+                        <th> Name</th>
+                        <th> Title</th>
+                        <th> Description</th>
+                        <th>Short Description</th>
+                        <th> Meta description</th>
+                        <th> Meta keywords</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products" >
+                        <td>{{product.id}}</td>
+                        <td>{{product.name}}</td>
+                        <td>{{product.title}}</td>
+                        <td>{{product.description}}</td>
+                        <td>{{product.short_description}}</td>
+                        <td>{{product.meta_description}}</td>
+                        <td>{{product.meta_keywords}}</td>
+                        <td><button class="btn btn-default" (click)="setSelectedProduct(product)" >Edit</button></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-xs-12"  *ngIf="!notEditing">
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name of product" [(ngModel)]="selectedProduct.name" name="name">
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea class="form-control" id="description" placeholder="Enter description for product" [(ngModel)]="selectedProduct.description" name="description"> </textarea> 
+            </div>
+            <div class="form-group">
+                <label for="short_description">Short description:</label>
+                <textarea class="form-control" id="short_description" placeholder="Enter short description for product" [(ngModel)]="selectedProduct.short_description" name="short_description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title" placeholder="Enter title of product" [(ngModel)]="selectedProduct.title" name="title">
+            </div>
+            <div class="form-group">
+                <label for="meta_description">Meta description:</label>
+                <input type="text" class="form-control" id="meta_description" placeholder="Enter title of product" [(ngModel)]="selectedProduct.meta_description" name="meta_description">
+            </div>
+             <div class="form-group">
+                <label for="meta_keywords">Meta keywords:</label>
+                <input type="text" class="form-control" id="meta_keywords" placeholder="Enter title of product" [(ngModel)]="selectedProduct.meta_keywords" name="meta_keywords">
+            </div>
+            
+            <button type="submit" class="btn btn-default" (click)="updateProduct()" >Submit</button>
+            <!-- <button type="submit" class="btn btn-default" (click)="cancelUpdate()" >Cancel</button> -->
+        </form>
+    </div>
+</div>
+<!-- Page Content goes here -->

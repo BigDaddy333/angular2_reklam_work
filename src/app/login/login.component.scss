@@ -1,0 +1,91 @@
+/*styles for login content only*/
+.card-container {
+	padding: 20px;
+	background: #E87100;
+	height: 100%;
+}
+
+input.form-control {
+	height: auto; 
+}
+
+.form-signin {
+	width: 270px;
+	margin: 100px auto 0;
+
+	h2 {
+		color: white;
+		font-weight: 300;
+	}
+
+	.form-group {
+		position: relative;
+		margin-bottom: 10px;
+
+		label {
+			position: absolute;
+			top: 5px;
+			left: 10px;
+			color: white;
+			font-weight: 300;
+		}
+
+		.form-border {
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+			right: 10px;
+			border-bottom: 1px solid #DDD;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 100%;
+				z-index: 10;
+				transition: all ease 0.5s;
+				border-bottom: 1px solid orange;
+			}
+			
+		}
+
+		input {
+			background-color: #ed8d33;
+			border: none;
+			color: black;
+			border-radius: 7px;
+			box-shadow: none;
+			padding: 30px 10px 10px;
+			margin-bottom: 0;
+			transition: all ease 0.5s;
+			font-weight: 300;
+
+			&:active, &:focus {
+				background-color: #f4b87f;
+
+				& + .form-border {
+					&:before {
+						right: 0;
+					}
+				}
+			}
+
+			&:hover + .form-border {
+				&:before {
+					right: 0;
+				}
+			}
+		}
+	}
+
+	.btn-login {
+		margin-top: 5px;
+		margin-bottom: 10px;
+		width: 100%;
+		// text-align: left;
+		// background-image: url(../img/icons/ico-mountain.png);
+		background-repeat: no-repeat;
+		background-position: calc(100% - 10px) center;
+	}
+}

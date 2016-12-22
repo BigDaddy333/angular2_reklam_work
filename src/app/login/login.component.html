@@ -1,0 +1,21 @@
+<div class="card-container">
+  <div>   
+    <form class="form-signin" (ngSubmit)="submitLogin()" autocomplete="off">
+    	<h2>Login</h2>
+    	<div class="form-group">
+    		<label for="username">Username: </label>
+    		<input type="text" class="form-control" required name="textInput" [(ngModel)]="username" autofocus>
+    		<div class="form-border"></div>
+    	</div>
+		<div class="form-group">
+			<label for="password">Password: </label>
+			<input type="password" class="form-control" required name="textInput" [(ngModel)]="password" autofocus>
+			<div class="form-border"></div>
+		</div>
+		<div class="btn-holder">
+			<button class="btn btn-login" type="submit" md-raised-button color="primary">Sign In</button>
+		</div>
+    </form>
+  </div>
+
+</div>
